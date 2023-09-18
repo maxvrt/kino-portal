@@ -25,11 +25,13 @@ export const GenreService = {
 		return axios.delete<string>(getGenresUrl(`/${_id}`));
 	},
 
-	//! нулевая ступень запроса react-query, первая - app\components\layout\Navigation\MenuContainer\genres\usePopularGenres.ts
+	//! внутренние запросы запроса react-query, нулевая ступень - app\components\layout\Navigation\MenuContainer\genres\usePopularGenres.ts
 	/**
 	 * запрос уйдет на http://localhost:4200/api/genres
 	 */
 	async getAll(searchTerm?: string) {
+		//! -1 ступень запроса react-query axiosClassic - app\api\interceptors.ts
+		//! -2 ступень запроса getGenresUrl - app\configs\api.config.ts
 		return axiosClassic.get<IGenre[]>(getGenresUrl(``), {
 			params: searchTerm
 				? {

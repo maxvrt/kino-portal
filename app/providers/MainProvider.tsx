@@ -25,10 +25,11 @@ const MainProvider: FC<LayoutProps> = ({ children }) => {
 	return (
 		// <HeadProvider>
 		// 	<Provider store={store}>
-        //! в начале нужно для меню, когда делаем запрос на жанры - DynamicGenreMenu
+        //! для react-query запросов (в начале нужно для меню жанров dynamic-GenreMenu)
 				<QueryClientProvider client={queryClient}>
 					{/* <ReduxToastr />
 					<AuthProvider Component={Component}> */}
+          {/*//! Layout оборачивает компоненты основной структурой */}
 						<Layout>{children}</Layout>
 					{/* </AuthProvider> */}
 				</QueryClientProvider>

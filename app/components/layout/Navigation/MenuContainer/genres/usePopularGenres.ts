@@ -10,7 +10,8 @@ import { IGenre } from '@/shared/types/movie.types';
  * REACT-QUERY запрос и обработка данных с бэка http://localhost:4200/api/genres
  */
 export const usePopularGenres = () => {
-	//! REACT-QUERY первая ступень запроса, вторая app\components\layout\Navigation\MenuContainer\genres\GenreMenu.tsx
+	//! REACT-QUERY нулевая ступень запроса, первая app\components\layout\Navigation\MenuContainer\genres\GenreMenu.tsx
+	// ещё один вариант запроса но уже с функцией в аргументах - app\components\layout\Sidebar\Search\Search.tsx
 	const queryData = useQuery(
 		// ключи должны быть уникальные?
 		'popular genres menu',

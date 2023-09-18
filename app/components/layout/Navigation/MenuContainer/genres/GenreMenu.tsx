@@ -1,4 +1,4 @@
-//import SkeletonLoader from '@/ui/skeleton-loader/SkeletonLoader'
+import SkeletonLoader from '@/ui/skeleton-loader/SkeletonLoader'
 
 import Menu from '../Menu'
 
@@ -8,12 +8,12 @@ import { usePopularGenres } from './usePopularGenres'
  * Вывод данных по жанрам (с бэка http://localhost:4200/api/genres)
  */
 const GenreMenu: React.FC = () => {
-  //! вторая ступень запроса react-query, первая - app\components\layout\Navigation\MenuContainer\MenuContainer.tsx  
-	const { isLoading, data } = usePopularGenres()
+  //! +1 ступень запроса react-query, верхняя (+2) - app\components\layout\Navigation\MenuContainer\MenuContainer.tsx  
+	const { isLoading, data } = usePopularGenres();
 
 	return isLoading ? (
 		<div className="mx-11 mb-6">
-			{/* <SkeletonLoader count={5} className="h-7 mt-6" /> */}
+			<SkeletonLoader count={5} className="h-7 mt-6" />
 		</div>
 	) : (
 		<Menu

@@ -51,7 +51,7 @@ const instance = axios.create({
 
 export default instance
 
-//! -1 ступень запроса react-query, нулевая - app\services\genre\genre.service.ts
+//! -1 ступень react-query, внутренние запросы запроса react-query - app\services\genre\genre.service.ts
 // переменные окружения взяты из next.config.js - там ещё автозамена адресов для api с перенаправлением на бэк
 export const axiosClassic = axios.create({
 	baseURL: API_URL,
