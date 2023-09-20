@@ -15,8 +15,8 @@ const MovieList: FC<{ list: IMovieList }> = ({
 			{movies.map(movie => (
 				<MovieItem key={movie._id} movie={movie} />
 			))}
-			<Link href={link}>
-				<a className={styles.button}>See more</a>
+			<Link className={styles.button} href={link}>
+				See more
 			</Link>
 		</div>
 	)

@@ -17,11 +17,13 @@ const Search: FC = () => {
 
   //! Запрос react-query с функцией debouncedSearch в аргументах - для задержки перед поиском
   // ещё один вариант запроса но без функции в аргументах - app\components\layout\Navigation\MenuContainer\genres\usePopularGenres.ts
+  // аналогичный запрос async getAll(searchTerm?: string) находится в app\services\genre\genre.service.ts
   // запрос будет перевызван и видимо продублирован дважды так как debouncedSearch передается ещё и в массиве?
 	const { isSuccess, data: popularMovies } = useQuery(
 		['search movie list', debouncedSearch],
 		() => MovieService.getMovies(debouncedSearch),
 		{
+      //getMovies НЕ деструктурирует объект data
 			select: ({ data }) => data,
 			enabled: !!debouncedSearch, // определяет, когда выполнить запрос
 		}

@@ -2,10 +2,11 @@
 // import HeadProvider from './HeadProvider/HeadProvider'
 import { FC, ReactNode } from 'react'
 import { QueryClient, QueryClientProvider } from 'react-query'
-// import { Provider } from 'react-redux'
-// import { store } from 'store/store'
+import { Provider } from 'react-redux'
+import { store } from 'store/store'
 import Layout from '@/components/layout/Layout'
-// import ReduxToastr from '@/ui/redux-toastr/ReduxToastr'
+import ReduxToastr from '@/ui/redux-toastr/ReduxToastr'
+import HeadProvider from './HeadProvider/HeadProvider'
 // import { TypeComponentAuthFields } from '@/shared/types/auth.types'
 
 // клиент react-query
@@ -23,18 +24,18 @@ interface LayoutProps {
 // <TypeComponentAuthFields>
 const MainProvider: FC<LayoutProps> = ({ children }) => {
 	return (
-		// <HeadProvider>
-		// 	<Provider store={store}>
-        //! для react-query запросов (в начале нужно для меню жанров dynamic-GenreMenu)
+		<HeadProvider>
+		  <Provider store={store}>
+        {/* //! Обертка для работы react-query запросов (в начале нужно для меню жанров dynamic-GenreMenu) */}
 				<QueryClientProvider client={queryClient}>
-					{/* <ReduxToastr />
-					<AuthProvider Component={Component}> */}
+					<ReduxToastr />
+					{/*<AuthProvider Component={Component}> */}
           {/*//! Layout оборачивает компоненты основной структурой */}
 						<Layout>{children}</Layout>
 					{/* </AuthProvider> */}
 				</QueryClientProvider>
-		// 	</Provider>
-		// </HeadProvider>
+		  </Provider>
+		</HeadProvider>
 	)
 }
 

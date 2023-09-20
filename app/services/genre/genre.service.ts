@@ -27,7 +27,7 @@ export const GenreService = {
 
 	//! внутренние запросы запроса react-query, нулевая ступень - app\components\layout\Navigation\MenuContainer\genres\usePopularGenres.ts
 	/**
-	 * запрос уйдет на http://localhost:4200/api/genres
+	 * запрос уйдет на http://localhost:4200/api/genres вызывается внутри useQuery
 	 */
 	async getAll(searchTerm?: string) {
 		//! -1 ступень запроса react-query axiosClassic - app\api\interceptors.ts

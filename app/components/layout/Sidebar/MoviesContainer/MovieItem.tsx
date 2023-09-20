@@ -4,7 +4,7 @@ import { FC } from 'react'
 
 import { MaterialIcon } from '@/components/ui/icons/MaterialIcon'
 
-//import { getGenresListEach } from '@/utils/movie/getGenresList'
+import { getGenresListEach } from '@/utils/movie/getGenresList'
 
 import { getGenreUrl, getMovieUrl } from '@/configs/url.config'
 
@@ -15,7 +15,6 @@ const MovieItem: FC<{ movie: IWidgetMovie }> = ({ movie }) => {
 	return (
 		<div className={styles.item}>
 			<Link href={getMovieUrl(movie.slug)}>
-				<a>
 					<Image
 						alt={movie.title}
 						width={65}
@@ -24,7 +23,6 @@ const MovieItem: FC<{ movie: IWidgetMovie }> = ({ movie }) => {
 						draggable={false}
 						priority
 					/>
-				</a>
 			</Link>
 			<div className={styles.info}>
 				<div>
@@ -32,7 +30,7 @@ const MovieItem: FC<{ movie: IWidgetMovie }> = ({ movie }) => {
 					<div className={styles.genres}>
 						{movie.genres.map(({ slug, name, _id }, idx) => (
 							<Link key={_id} href={getGenreUrl(slug)}>
-								{/* <a>{getGenresListEach(idx, movie.genres.length, name)}</a> */}
+								{getGenresListEach(idx, movie.genres.length, name)}
 							</Link>
 						))}
 					</div>

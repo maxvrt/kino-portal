@@ -12,7 +12,6 @@ const SearchList: FC<{ movies: IWidgetMovie[] }> = ({ movies }) => {
 			{movies.length ? (
 				movies.map((movie) => (
 					<Link key={movie._id} href={`/movie/${movie.slug}`}>
-						<a>
 							<Image
 								src={movie.poster || ''}
 								width={50}
@@ -23,7 +22,6 @@ const SearchList: FC<{ movies: IWidgetMovie[] }> = ({ movies }) => {
 								draggable={false}
 							/>
 							<span>{movie.title}</span>
-						</a>
 					</Link>
 				))
 			) : (
