@@ -1,9 +1,4 @@
 import { useTypedSelector } from './useTypedSelector'
 
-// ошибка с типом юзера в useTypedSelector
-export const useAuth = () => {  
-  return {
-    user: null,
-    isLoading: false,  
-  }
-}
+/** вспомогательный хук для useSelector как и useTypedSelector */
+export const useAuth = () => useTypedSelector((state) => state.user);

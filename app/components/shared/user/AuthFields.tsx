@@ -5,8 +5,14 @@ import Field from '@/components/ui/form-elements/Field'
 
 import { validEmail } from '@/shared/regex'
 
+// interface FormData {
+//   username: string;
+//   password: string;
+//   email: string;
+// }
+
 interface IAuthFields {
-	register: UseFormRegister<any>
+	register: UseFormRegister<any> //<FormData>
 	formState: FormState<any>
 	isPasswordRequired?: boolean
 }
@@ -16,9 +22,13 @@ const AuthFields: FC<IAuthFields> = ({
 	formState: { errors },
 	isPasswordRequired = false,
 }) => {
-	return (
-		<>
+	return (    
+		<>       
 			<Field
+        /* 
+        настройка из react-hook-form
+        обычно вызывается с параметрами, такими как имя поля и настройки валидации, чтобы связать поле формы с библиотекой 
+        */
 				{...register('email', {
 					required: 'Email is required!',
 					pattern: {

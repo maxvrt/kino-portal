@@ -13,6 +13,8 @@ import { Meta } from '@/utils/meta/Meta'
 
 import { IAuthInput } from './auth.interface'
 import { useAuthRedirect } from './useAuthRedirect'
+import AuthFields from '@/components/shared/user/AuthFields'
+import { useActions } from '@/hooks/useActions'
 
 const Auth: FC = () => {
 	useAuthRedirect();
@@ -34,8 +36,9 @@ const Auth: FC = () => {
 		mode: 'onChange',
 	})
 
-	const login = (data:any) => {}
-  const register = (data:any) => {}
+  const {login, register} = useActions();
+	// const login = (data:any) => {alert(`${JSON.stringify(data, null, 2)}`)};
+  // const register = (data:any) => {}
 
 	const onSubmit: SubmitHandler<IAuthInput> = (data) => {
 		if (type === 'login') login(data)
@@ -48,7 +51,7 @@ const Auth: FC = () => {
 			<section className={styles.wrapper}>
 				<form onSubmit={handleSubmit(onSubmit)}>
 					<Heading title="Auth" className="mb-6" />
-					{/* <AuthFields register={registerInput} formState={formState} /> */}
+					<AuthFields register={registerInput} formState={formState} />
 
 					<div className={styles.buttons}>
 						<Button
