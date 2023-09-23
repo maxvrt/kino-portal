@@ -35,6 +35,7 @@ export const login = createAsyncThunk<IAuthResponse, InterfaceEmailPassword>(
 	}
 )
 
+/** экшн вызывает api AuthService.logout() */
 export const logout = createAsyncThunk('auth/logout', async () => {
 	await AuthService.logout()
 })

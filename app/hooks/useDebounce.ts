@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+// дефолтный прием для ввода в input
 export const useDebounce = <T>(value: T, delay: number): T => {
 	const [debouncedValue, setDebouncedValue] = useState<T>(value)
 

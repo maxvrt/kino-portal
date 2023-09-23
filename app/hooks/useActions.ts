@@ -4,7 +4,9 @@ import { bindActionCreators } from 'redux'
 
 import { allActions } from '@/store/rootActions'
 
-/** этот хук удобен извлечением const {register} = useActions() */
+/** этот хук удобен извлечением const {register} = useActions() 
+ * например экшн logout вызывает api AuthService.logout() 
+ */
 export const useActions = () => {
 	const dispatch = useDispatch();
 
