@@ -40,6 +40,7 @@ export const logout = createAsyncThunk('auth/logout', async () => {
 	await AuthService.logout()
 })
 
+/** проверка и обновление токенов */
 export const checkAuth = createAsyncThunk<IAuthResponse>(
 	'auth/check-auth',
 	async (_, thunkAPI) => {

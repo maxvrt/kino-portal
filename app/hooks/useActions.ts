@@ -4,12 +4,11 @@ import { bindActionCreators } from 'redux'
 
 import { allActions } from '@/store/rootActions'
 
-/** этот хук удобен извлечением const {register} = useActions() 
+/** этот хук удобен извлечением экшенов const {register} = useActions() 
  * например экшн logout вызывает api AuthService.logout() 
  */
 export const useActions = () => {
 	const dispatch = useDispatch();
-
 	// memo - экшены меняются только при изменении dispatch
 	return useMemo(() => bindActionCreators(allActions, dispatch), [dispatch]);
 }
