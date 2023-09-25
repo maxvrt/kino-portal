@@ -25,8 +25,7 @@ const AuthProvider: FC<TypeComponentAuthFields> = ({
 		if (accessToken) checkAuth()
 	}, []) // eslint-disable-line react-hooks/exhaustive-deps
 
-  // ещё проверка при переходе на к.л. страницу - разлогиниваем 
-  // при отсутствии refreshToken
+  // ещё проверка при переходе на к.л. страницу - разлогиниваем при отсутствии refreshToken
 	useEffect(() => {
 		const refreshToken = Cookies.get('refreshToken')
 		if (!refreshToken && user) logout()
